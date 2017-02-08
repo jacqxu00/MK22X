@@ -5,7 +5,12 @@ public class Recursion{
     }
     
     public static double sqrt(double n){
-	return sqrtH(n,1);
+	if (n < 0) {
+	    throw new IllegalArgumentException("value must be > 0");
+	}
+	else {
+	    return sqrtH(n,1);
+	}
     }
 
     private static double sqrtH(double n, double guess){
@@ -22,7 +27,7 @@ public class Recursion{
 	return (x-y)*1.0/((x+y)*1.0/2);
     }
 
-    /*
+    
     public static void main(String[]args) {
 	System.out.println(percDiff(100,80));
 	System.out.println(percDiff(100,90));
@@ -33,6 +38,7 @@ public class Recursion{
 	System.out.println(sqrt(4));
 	System.out.println(sqrt(2));
 	System.out.println(sqrt(25));
+	System.out.println(sqrt(-25));
     }
-    */
+    
 }
