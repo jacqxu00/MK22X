@@ -4,6 +4,7 @@ public class QueenBoard{
 
     public QueenBoard(int size){
 	board = new int[size][size];
+        solutionCount = -1;
     }
 
     /**
@@ -156,7 +157,7 @@ public class QueenBoard{
     }
 
     /*public static void main(String[]args) {
-	QueenBoard q = new QueenBoard(11);
+	QueenBoard q = new QueenBoard(3);
 	q.solve();
 	System.out.println(q.toString());
 	q.countSolutions();
