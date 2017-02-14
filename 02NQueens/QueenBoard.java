@@ -22,28 +22,16 @@ public class QueenBoard{
     }
 
     private boolean solveH(int row){
-	System.out.println("on row"+row);
 	if (row==board.length) {
 	    return true;
 	}
 	for (int col = 0; col < board.length; col++) {
 	    if (isValidMove(row,col)) {
 		addQueen(row,col);
-		System.out.println("addqueen\n"+toString());
-		return solveH(row+1);
-	    }
-	    else {
-		if (col==board.length-1) {
-		    if (moveQueenDown(row-1)==-1) {
-			System.out.println("no more moves this row");
-			return false;
-		    }
-		    else {
-			int a = moveQueenDown(row-1);
-			System.out.println(toString());
-			return solveH(row);
-		    }
+		if (solveH(row+1)) {
+		    return true;
 		}
+		removeQueen(row);
 	    }
 	}
 	return false;
@@ -92,23 +80,58 @@ public class QueenBoard{
     }
 
     private int moveQueenDown (int row) {
+	int ans = -1;
 	for (int col = 0; col < board.length-1; col++) {
 	    System.out.println("row"+row+" col"+col);
 	    if (board[row][col]==-1) {
 		removeQueen(row);
-		addQueen(row,col+1);
-		return col+1;
+		System.out.println("removed\n"+toString());
+		int emptyCol = nextAvailCol(row,col);
+		if (emptyCol != -1) {
+		    addQueen(row,emptyCol);
+		}
+		ans = emptyCol;
 	    }
 	}
-	return -1;
+	return ans;
     }
 
+    private int nextAvailCol (int row, int curr) {
+	int ans = -1;
+	for (int col = curr+1; col < board.length; col++) {
+	    if (board[row][col]==0) {
+		ans = col;
+	    }
+	}
+	System.out.println(ans);
+	return ans;
+    }
     /**
      *@return the number of solutions found, or -1 if the board was never solved.
      *The board should be reset after this is run.    
      */
-    public int getSolutionCount(){
-    	return -1;
+    public void countSolutions(){
+	int size = board.length;
+        board = new int[size][size];
+        countSolsH(0);
+    }
+    
+    private void countSolsH(int row) {
+	if (row==board.length) {
+	    solutionCount++;
+	    return;
+	}
+	for (int col = 0; col < board.length; col++) {
+	    if (isValidMove(row,col)) {
+		addQueen(row,col);
+	        countSolsH(row+1);
+		removeQueen(row);
+	    }
+	}
+    }
+    
+    public int getCount(){
+    	return solutionCount;
     }
     
     /**toString
@@ -123,7 +146,7 @@ public class QueenBoard{
 		    ans += "Q";
 		}
 		else {
-		    ans += board[r][c];
+		    ans += "_";
 		}
 		ans += " ";
 	    }
@@ -132,9 +155,11 @@ public class QueenBoard{
 	return ans;
     }
 
-    public static void main(String[]args) {
-	QueenBoard q = new QueenBoard(4);
+    /*public static void main(String[]args) {
+	QueenBoard q = new QueenBoard(11);
 	q.solve();
 	System.out.println(q.toString());
-    }
+	q.countSolutions();
+	System.out.println(q.getCount());
+	}*/
 }
