@@ -118,6 +118,7 @@ public class QueenBoard{
     }
     
     private void countSolsH(int row) {
+	solutionCount = 0;
 	if (row==board.length) {
 	    solutionCount++;
 	    return;
