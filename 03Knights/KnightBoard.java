@@ -23,13 +23,13 @@ public class KnightBoard {
 		    if (r*c>=10 && board[r][c]<10) {
 			    ans += " ";
 			    ans += board[r][c];
-			    ans += " ";
 		    }
 		    else {
-			ans += board[r][c];
 			ans += " ";
+			ans += board[r][c];
 		    }
 		}
+		ans+= "\n";
 	    }
 	}
 	return ans;
@@ -39,30 +39,30 @@ public class KnightBoard {
 	int size1 = board.length;
 	int size2 = board[0].length;
         board = new int[size1][size2];
-	solveH(0,0,1);
+	solveH(size1,size2,1);
     }
 
     // level is the # of the knight
     private boolean solveH(int row ,int col, int level){
-	if (level>row*col) {
+	if (level>board.length*board[0].length){
 	    return true;
 	}
 	for (int move = 0; move < 8; move++) {
-	    int newRow = moves[0][move];
-	    int newCol = moves[1][move];
+	    int newRow = row + moves[0][move];
+	    int newCol = col + moves[1][move];
 	    if (isValidMove(newRow,newCol)) {
-		mark(row,col,level);
+		mark(newRow,newCol,level);
 		if (solveH(newRow,newCol,level+1)) {
 		    return true;
 		}
-		unmark(row,col);
+		unmark(newRow,newCol);
 	    }
 	}
 	return false;
     }
 
     private boolean isValidMove(int newRow,int newCol) {
-	return newRow >= 0 && newRow < 8  && newCol >= 0 && newCol < 8 && board[newRow][newCol]==0;
+	return newRow >= 0 && newRow < board.length && newCol >= 0 && newCol < board[0].length && board[newRow][newCol]==0;
     }
 
     private void mark(int row,int col,int level) {
@@ -74,9 +74,11 @@ public class KnightBoard {
     }
 
     public static void main(String[] args) {
-	KnightBoard h = new KnightBoard(4,5);
-	h.solve();
-	System.out.println(h.toString());
+	for (int i = 5; i < 63; i++) {
+	    KnightBoard h = new KnightBoard(i,i);
+	    h.solve();
+	    System.out.println(h.toString()+"\n");
+	}
     }
 
 }
