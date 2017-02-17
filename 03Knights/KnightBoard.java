@@ -20,7 +20,7 @@ public class KnightBoard {
 	if (!(sum==0)) {
 	    for (int r = 0; r < board.length; r++) {
 		for (int c = 0; c < board[0].length; c++) {
-		    if (r*c>=10 && board[r][c]<10) {
+		    if (board.length*board[0].length>=10 && board[r][c]<10) {
 			    ans += " ";
 			    ans += board[r][c];
 		    }
@@ -39,11 +39,15 @@ public class KnightBoard {
 	int size1 = board.length;
 	int size2 = board[0].length;
         board = new int[size1][size2];
-	solveH(size1,size2,1);
+	solveH(0,0,0);
     }
 
     // level is the # of the knight
     private boolean solveH(int row ,int col, int level){
+	if (level==0) {
+	    mark(0,0,0);
+	    solveH(0,0,1);
+	}
 	if (level>board.length*board[0].length){
 	    return true;
 	}
@@ -67,6 +71,7 @@ public class KnightBoard {
 
     private void mark(int row,int col,int level) {
 	board[row][col]=level;
+	//System.out.println("marked\n"+toString());
     }
 
     private void unmark(int row,int col) {
@@ -78,7 +83,10 @@ public class KnightBoard {
 	    KnightBoard h = new KnightBoard(i,i);
 	    h.solve();
 	    System.out.println(h.toString()+"\n");
-	}
+	    }
+	KnightBoard h = new KnightBoard(5,5);
+	h.solve();
+	System.out.println(h.toString()+"\n");
     }
 
 }
