@@ -11,17 +11,17 @@ public class KnightBoard {
 
     public String toString() {
 	int sum = 0;
-	String ans = "";
+	String ans = "solution for "+board.length+"x"+board[0].length+":\n";
 	for (int r = 0; r < board.length; r++) {
 	    for (int c = 0; c < board[0].length; c++) {
 		sum+=board[r][c];
 	    }
 	}
-	if (!(sum==0)) {
+	if (!(sum==1)) {
 	    for (int r = 0; r < board.length; r++) {
 		for (int c = 0; c < board[0].length; c++) {
 		    if (board.length*board[0].length>=10 && board[r][c]<10) {
-			    ans += " ";
+			    ans += "  ";
 			    ans += board[r][c];
 		    }
 		    else {
@@ -83,16 +83,13 @@ public class KnightBoard {
     }
 
     public static void main(String[] args) {
-	for (int r = 3; r < 7; r++) {
-	    for (int c = 4; c < 7; c++) {
+	for (int r = 3; r < 8; r++) {
+	    for (int c = 4; c < 8; c++) {
 		KnightBoard h = new KnightBoard(r,c);
 		h.solve();
 		System.out.println(h.toString()+"\n");
 	    }
 	}
-	KnightBoard h = new KnightBoard(5,5);
-	h.solve();
-	System.out.println(h.toString()+"\n");
     }
 
 }
