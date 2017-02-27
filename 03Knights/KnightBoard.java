@@ -36,9 +36,6 @@ public class KnightBoard {
     }
 
     public void solve() {
-	int size1 = board.length;
-	int size2 = board[0].length;
-        board = new int[size1][size2];
 	solveH(0,0,1);
     }
 
