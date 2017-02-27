@@ -83,10 +83,8 @@ public class QueenBoard{
     private int moveQueenDown (int row) {
 	int ans = -1;
 	for (int col = 0; col < board.length-1; col++) {
-	    System.out.println("row"+row+" col"+col);
 	    if (board[row][col]==-1) {
 		removeQueen(row);
-		System.out.println("removed\n"+toString());
 		int emptyCol = nextAvailCol(row,col);
 		if (emptyCol != -1) {
 		    addQueen(row,emptyCol);
@@ -104,7 +102,6 @@ public class QueenBoard{
 		ans = col;
 	    }
 	}
-	System.out.println(ans);
 	return ans;
     }
     /**
