@@ -40,13 +40,14 @@ public class KnightBoard {
 	}
 	return ans;
     }
-
+    
     public void solveFast() {
 	solveFastH(0,0,1);
     }
     
     public boolean solveFastH(int row, int col, int level) {
-	System.out.println("at row"+row+" col"+col);
+	System.out.println("level = "+level);
+	sortMoveIndex(row,col);
 	if (level==1) {
 	    for (int r = 0; r < board.length/2+1; r++) {
 		for (int c = 0; c < board.length/2+1; c++) {
@@ -55,15 +56,17 @@ public class KnightBoard {
 		}
 	    }
 	}
-	if (level>board.length*board[0].length){
+	System.out.println("finished = "+(level > board.length*board[0].length));
+	if (level > board.length*board[0].length){
 	    return true;
 	}
-	sortMoveIndex(row,col);
 	for (int move = 0; move < moveindex.size(); move++) {
+	    System.out.println(toString());
 	    int newRow = row + moves[0][moveindex.get(move)];
 	    int newCol = col + moves[1][moveindex.get(move)];
 	    if (isValidMove(newRow,newCol)) {
 		mark(newRow,newCol,level);
+		System.out.println("solve of next  = "+solveFastH(newRow,newCol,level+1));
 		if (solveFastH(newRow,newCol,level+1)) {
 		    return true;
 		}
@@ -71,9 +74,18 @@ public class KnightBoard {
 	    }
 	}
 	return false;
-	
     }
 
+    private boolean checkzero() {
+	boolean ans = true;
+	for (int r = 0; r < board.length; r++) {
+	    for (int c = 0; c < board[0].length; c++) {
+		ans = ans && board[r][c] != 0;
+	    }
+	}
+	return ans;
+    }
+    
     private void calcMoves() {
 	for (int r = 0; r < board.length; r++) {
 	    for (int c = 0; c < board[0].length; c++) {
@@ -92,12 +104,12 @@ public class KnightBoard {
 
     private void fillMoveIndex(int row, int col) {
 	moveindex  = new ArrayList<Integer>();
-	System.out.println(row+", "+col);
+	//System.out.println(row+", "+col);
 	for (int move = 0; move < 8; move++) {
 	    int newRow = row + moves[0][move];
 	    int newCol = col + moves[1][move];
-	    System.out.println(newRow+", "+newCol);
-	    System.out.println(isValidMove(newRow,newCol));
+	    //System.out.println(newRow+", "+newCol);
+	    //System.out.println(isValidMove(newRow,newCol));
 	    if (isValidMove(newRow,newCol)) {
 	        moveindex.add(move);
 	    }
@@ -106,24 +118,24 @@ public class KnightBoard {
 
     private void sortMoveIndex(int row, int col) {
 	fillMoveIndex(row,col);
-	System.out.println(printmove());
+	System.out.println("before"+printmove());
 	if (moveindex.size() > 1) {
+	    int temp;
 	    for (int i = 1; i < moveindex.size(); i++) {
-		int row1 = row + moves[0][moveindex.get(i)];
-		int col1 = col + moves[1][moveindex.get(i)];
-		int row2 = row + moves[0][moveindex.get(i-1)];
-		int col2 = col + moves[1][moveindex.get(i-1)];
-		if (nummoves[row1][col1] < nummoves[row2][col2]){
-		    int val = moveindex.get(i);
-		    for (int j = i; j >= 1; j--) {
-			if (val < moveindex.get(j-1)) {
-			    moveindex.set(j,moveindex.get(j-1));
-			    moveindex.set(j-1,val);
-			}
+		for(int j = i ; j > 0 ; j--){
+		    int row1 = row + moves[0][moveindex.get(j)];
+		    int col1 = col + moves[1][moveindex.get(j)];
+		    int row2 = row + moves[0][moveindex.get(j-1)];
+		    int col2 = col + moves[1][moveindex.get(j-1)];
+		    if(nummoves[row1][col1] < nummoves[row2][col2]){
+			temp = moveindex.get(j);
+		        moveindex.set(j,moveindex.get(j-1));
+			moveindex.set(j-1,temp);
 		    }
 		}
 	    }
 	}
+	System.out.println("after"+printmove());
     }
 
     private String printmove() {
@@ -149,13 +161,13 @@ public class KnightBoard {
     }
 
     public static void main(String[] args) {
-	//for (int r = 3; r < 7; r++) {
-	    for (int c = 3; c < 5; c++) {
-		KnightBoard h = new KnightBoard(3,c);
+	//for (int r = 7; r < 25; r++) {
+	//for (int c = 7; c < 25; c++) {
+		KnightBoard h = new KnightBoard(5,6);
 		h.solveFast();
 		System.out.println(h.toString());
-	    }
-	    //}
+		//}
+    //}
     }
 
 }
