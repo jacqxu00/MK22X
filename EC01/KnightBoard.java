@@ -56,8 +56,9 @@ public class KnightBoard {
 		}
 	    }
 	}
-	System.out.println("finished = "+(level > board.length*board[0].length));
+	System.out.println("level = "+level+"finished = "+(level > board.length*board[0].length));
 	if (level > board.length*board[0].length){
+	    //System.out.println("returning true base case");
 	    return true;
 	}
 	for (int move = 0; move < moveindex.size(); move++) {
@@ -66,13 +67,17 @@ public class KnightBoard {
 	    int newCol = col + moves[1][moveindex.get(move)];
 	    if (isValidMove(newRow,newCol)) {
 		mark(newRow,newCol,level);
-		System.out.println("solve of next  = "+solveFastH(newRow,newCol,level+1));
+		System.out.println("level = "+level);
 		if (solveFastH(newRow,newCol,level+1)) {
+		    System.out.println("returning true inner loop");
 		    return true;
 		}
-		unmark(newRow,newCol);
+		else {
+		    unmark(newRow,newCol);
+		}
 	    }
 	}
+	System.out.println("returning false");
 	return false;
     }
 
@@ -104,12 +109,12 @@ public class KnightBoard {
 
     private void fillMoveIndex(int row, int col) {
 	moveindex  = new ArrayList<Integer>();
-	//System.out.println(row+", "+col);
+	System.out.println(row+", "+col);
 	for (int move = 0; move < 8; move++) {
 	    int newRow = row + moves[0][move];
 	    int newCol = col + moves[1][move];
-	    //System.out.println(newRow+", "+newCol);
-	    //System.out.println(isValidMove(newRow,newCol));
+	    System.out.println(newRow+", "+newCol);
+	    System.out.println(isValidMove(newRow,newCol));
 	    if (isValidMove(newRow,newCol)) {
 	        moveindex.add(move);
 	    }
@@ -118,7 +123,7 @@ public class KnightBoard {
 
     private void sortMoveIndex(int row, int col) {
 	fillMoveIndex(row,col);
-	System.out.println("before"+printmove());
+	//System.out.println("before"+printmove());
 	if (moveindex.size() > 1) {
 	    int temp;
 	    for (int i = 1; i < moveindex.size(); i++) {
@@ -161,13 +166,13 @@ public class KnightBoard {
     }
 
     public static void main(String[] args) {
-	//for (int r = 7; r < 25; r++) {
-	//for (int c = 7; c < 25; c++) {
-		KnightBoard h = new KnightBoard(5,6);
+	//for (int r = 3; r < 10; r++) {
+	//for (int c = 3; c < 10; c++) {
+		KnightBoard h = new KnightBoard(3,7);
 		h.solveFast();
 		System.out.println(h.toString());
 		//}
-    //}
+		//}
     }
 
 }

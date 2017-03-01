@@ -1,0 +1,387 @@
+level = 1
+before2, 3, 
+after2, 3, 
+level = 2
+before2, 3, 
+after2, 3, 
+level = 2finished = false
+solution for 5x6:
+
+level = 2solve of next  = 
+level = 3
+before1, 2, 3, 4, 5, 
+after1, 4, 5, 2, 3, 
+level = 3finished = false
+solution for 5x6:
+  1  0  0  0  0  0
+  0  0  2  0  0  0
+  0  0  0  0  0  0
+  0  0  0  0  0  0
+  0  0  0  0  0  0
+
+level = 3solve of next  = 
+level = 4
+before3, 4, 
+after3, 4, 
+level = 4finished = false
+solution for 5x6:
+  1  0  0  0  3  0
+  0  0  2  0  0  0
+  0  0  0  0  0  0
+  0  0  0  0  0  0
+  0  0  0  0  0  0
+
+level = 4solve of next  = 
+level = 5
+before4, 5, 6, 
+after4, 5, 6, 
+level = 5finished = false
+solution for 5x6:
+  1  0  0  0  3  0
+  0  0  2  0  0  0
+  0  0  0  0  0  4
+  0  0  0  0  0  0
+  0  0  0  0  0  0
+
+level = 5solve of next  = 
+level = 6
+before6, 7, 
+after6, 7, 
+level = 6finished = false
+solution for 5x6:
+  1  0  0  0  3  0
+  0  0  2  0  0  0
+  0  0  0  0  0  4
+  0  0  0  0  0  0
+  0  0  0  0  5  0
+
+level = 6solve of next  = 
+level = 7
+before0, 1, 5, 6, 7, 
+after5, 6, 7, 0, 1, 
+level = 7finished = false
+solution for 5x6:
+  1  0  0  0  3  0
+  0  0  2  0  0  0
+  0  0  0  0  0  4
+  0  0  6  0  0  0
+  0  0  0  0  5  0
+
+level = 7solve of next  = 
+level = 8
+before0, 
+after0, 
+level = 8finished = false
+solution for 5x6:
+  1  0  0  0  3  0
+  0  0  2  0  0  0
+  0  0  0  0  0  4
+  0  0  6  0  0  0
+  7  0  0  0  5  0
+
+level = 8solve of next  = 
+level = 9
+before0, 1, 2, 3, 
+after0, 3, 1, 2, 
+level = 9finished = false
+solution for 5x6:
+  1  0  0  0  3  0
+  0  0  2  0  0  0
+  0  8  0  0  0  4
+  0  0  6  0  0  0
+  7  0  0  0  5  0
+
+level = 9solve of next  = 
+level = 10
+before2, 3, 5, 
+after5, 2, 3, 
+level = 10finished = false
+solution for 5x6:
+  1  0  9  0  3  0
+  0  0  2  0  0  0
+  0  8  0  0  0  4
+  0  0  6  0  0  0
+  7  0  0  0  5  0
+
+level = 10solve of next  = 
+level = 11
+before2, 3, 
+after3, 2, 
+level = 11finished = false
+solution for 5x6:
+  1  0  9  0  3  0
+ 10  0  2  0  0  0
+  0  8  0  0  0  4
+  0  0  6  0  0  0
+  7  0  0  0  5  0
+
+level = 11solve of next  = 
+level = 12
+before1, 2, 
+after2, 1, 
+level = 12finished = false
+solution for 5x6:
+  1  0  9  0  3  0
+ 10  0  2  0  0  0
+  0  8  0  0  0  4
+  0 11  6  0  0  0
+  7  0  0  0  5  0
+
+level = 12solve of next  = 
+level = 13
+before0, 1, 7, 
+after1, 0, 7, 
+level = 13finished = false
+solution for 5x6:
+  1  0  9  0  3  0
+ 10  0  2  0  0  0
+  0  8  0  0  0  4
+  0 11  6  0  0  0
+  7  0  0 12  5  0
+
+level = 13solve of next  = 
+level = 14
+before6, 7, 
+after7, 6, 
+level = 14finished = false
+solution for 5x6:
+  1  0  9  0  3  0
+ 10  0  2  0  0  0
+  0  8  0  0  0  4
+  0 11  6  0  0 13
+  7  0  0 12  5  0
+
+level = 14solve of next  = 
+level = 15
+before4, 5, 
+after4, 5, 
+level = 15finished = false
+solution for 5x6:
+  1  0  9  0  3  0
+ 10  0  2  0 14  0
+  0  8  0  0  0  4
+  0 11  6  0  0 13
+  7  0  0 12  5  0
+
+level = 15solve of next  = 
+level = 16
+before2, 5, 
+after2, 5, 
+level = 16finished = false
+solution for 5x6:
+  1  0  9  0  3  0
+ 10  0  2  0 14  0
+  0  8  0  0  0  4
+  0 11  6 15  0 13
+  7  0  0 12  5  0
+
+level = 16solve of next  = 
+level = 17
+before7, 
+after7, 
+level = 17finished = false
+solution for 5x6:
+  1  0  9  0  3  0
+ 10  0  2  0 14  0
+  0  8  0  0  0  4
+  0 11  6 15  0 13
+  7  0  0 12  5 16
+
+level = 17solve of next  = 
+level = 18
+before0, 7, 
+after0, 7, 
+level = 18finished = false
+solution for 5x6:
+  1  0  9  0  3  0
+ 10  0  2  0 14  0
+  0  8  0  0 17  4
+  0 11  6 15  0 13
+  7  0  0 12  5 16
+
+level = 18solve of next  = 
+level = 19
+before5, 
+after5, 
+level = 19finished = false
+solution for 5x6:
+  1  0  9  0  3 18
+ 10  0  2  0 14  0
+  0  8  0  0 17  4
+  0 11  6 15  0 13
+  7  0  0 12  5 16
+
+level = 19solve of next  = 
+level = 20
+before3, 6, 
+after6, 3, 
+level = 20finished = false
+solution for 5x6:
+  1  0  9  0  3 18
+ 10  0  2 19 14  0
+  0  8  0  0 17  4
+  0 11  6 15  0 13
+  7  0  0 12  5 16
+
+level = 20solve of next  = 
+level = 21
+before3, 4, 
+after4, 3, 
+level = 21finished = false
+solution for 5x6:
+  1 20  9  0  3 18
+ 10  0  2 19 14  0
+  0  8  0  0 17  4
+  0 11  6 15  0 13
+  7  0  0 12  5 16
+
+level = 21solve of next  = 
+level = 22
+before3, 
+after3, 
+level = 22finished = false
+solution for 5x6:
+  1 20  9  0  3 18
+ 10  0  2 19 14  0
+ 21  8  0  0 17  4
+  0 11  6 15  0 13
+  7  0  0 12  5 16
+
+level = 22solve of next  = 
+level = 23
+before0, 
+after0, 
+level = 23finished = false
+solution for 5x6:
+  1 20  9  0  3 18
+ 10  0  2 19 14  0
+ 21  8  0  0 17  4
+  0 11  6 15  0 13
+  7 22  0 12  5 16
+
+level = 23solve of next  = 
+level = 24
+before0, 2, 5, 
+after5, 0, 2, 
+level = 24finished = false
+solution for 5x6:
+  1 20  9  0  3 18
+ 10  0  2 19 14  0
+ 21  8 23  0 17  4
+  0 11  6 15  0 13
+  7 22  0 12  5 16
+
+level = 24solve of next  = 
+level = 25
+before0, 2, 
+after0, 2, 
+level = 25finished = false
+solution for 5x6:
+  1 20  9  0  3 18
+ 10  0  2 19 14  0
+ 21  8 23  0 17  4
+ 24 11  6 15  0 13
+  7 22  0 12  5 16
+
+level = 25solve of next  = 
+level = 26
+before1, 2, 
+after1, 2, 
+level = 26finished = false
+solution for 5x6:
+  1 20  9  0  3 18
+ 10 25  2 19 14  0
+ 21  8 23  0 17  4
+ 24 11  6 15  0 13
+  7 22  0 12  5 16
+
+level = 26solve of next  = 
+level = 27
+before2, 
+after2, 
+level = 27finished = false
+solution for 5x6:
+  1 20  9 26  3 18
+ 10 25  2 19 14  0
+ 21  8 23  0 17  4
+ 24 11  6 15  0 13
+  7 22  0 12  5 16
+
+level = 27solve of next  = 
+level = 28
+before4, 5, 
+after4, 5, 
+level = 28finished = false
+solution for 5x6:
+  1 20  9 26  3 18
+ 10 25  2 19 14 27
+ 21  8 23  0 17  4
+ 24 11  6 15  0 13
+  7 22  0 12  5 16
+
+level = 28solve of next  = 
+level = 29
+before5, 
+after5, 
+level = 29finished = false
+solution for 5x6:
+  1 20  9 26  3 18
+ 10 25  2 19 14 27
+ 21  8 23  0 17  4
+ 24 11  6 15 28 13
+  7 22  0 12  5 16
+
+level = 29solve of next  = 
+level = 30
+before0, 
+after0, 
+level = 30finished = false
+solution for 5x6:
+  1 20  9 26  3 18
+ 10 25  2 19 14 27
+ 21  8 23  0 17  4
+ 24 11  6 15 28 13
+  7 22 29 12  5 16
+
+level = 30solve of next  = 
+level = 31
+before
+after
+level = 31finished = true
+returning true base case
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+returning true inner loop
+solution for 5x6:
+  1 20  9 26  3 18
+ 10 25  2 19 14 27
+ 21  8 23 30 17  4
+ 24 11  6 15 28 13
+  7 22 29 12  5 16
+
