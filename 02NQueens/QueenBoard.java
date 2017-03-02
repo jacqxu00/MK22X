@@ -109,15 +109,18 @@ public class QueenBoard{
      *The board should be reset after this is run.    
      */
     public void countSolutions(){
+	solutionCount = 0;
 	int size = board.length;
         board = new int[size][size];
         countSolsH(0);
     }
     
     private void countSolsH(int row) {
-	solutionCount = 0;
+	//System.out.println(toString());
+	//System.out.println(row);
 	if (row==board.length) {
 	    solutionCount++;
+	    
 	    return;
 	}
 	for (int col = 0; col < board.length; col++) {
@@ -129,7 +132,7 @@ public class QueenBoard{
 	}
     }
     
-    public int getCount(){
+    public int getSolutionCount(){
     	return solutionCount;
     }
     
@@ -154,11 +157,13 @@ public class QueenBoard{
 	return ans;
     }
 
-    /*public static void main(String[]args) {
-	QueenBoard q = new QueenBoard(3);
-	q.solve();
-	System.out.println(q.toString());
-	q.countSolutions();
-	System.out.println(q.getCount());
-	}*/
+    public static void main(String[]args) {
+	for (int i = 2; i < 12; i++) {
+	    QueenBoard q = new QueenBoard(i);
+	    q.solve();
+	    System.out.println(q.toString());
+	    q.countSolutions();
+	    System.out.println(q.getSolutionCount());
+	}
+    }
 }
