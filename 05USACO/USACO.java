@@ -247,6 +247,12 @@ public class USACO {
 	System.out.println(x.silver("stest1.txt"));
 	System.out.println("Answer: 1");
 
+	System.out.println(x.silver("stest2.txt"));
+	System.out.println("Answer: 74");
+
+	System.out.println(x.silver("stest3.txt"));
+	System.out.println("Answer: 6435");
+
     }
 
 }
