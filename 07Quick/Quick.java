@@ -10,6 +10,7 @@ public class Quick {
 	int s = start;
 	int e = end;
 	int i = start+1;
+	swap(data,rand,start);
 	System.out.println("s = "+start);
 	System.out.println("e = "+end);
 	while (i<=e) {
@@ -20,7 +21,7 @@ public class Quick {
 	    //System.out.println("n = "+n);
 	    //System.out.println(toString(data));
 	    //System.out.println(data[i]);
-	    if (data[i] < num ) {
+	    if (data[i] == num ) {
 		i++;
 	    }
 	    else if (data[i] < num) {
@@ -73,21 +74,23 @@ public class Quick {
 	    int range = (end - start) + 1;
 	    int rand = (int)(Math.random() * range) + start;
 	    int num = data[rand];
-	    //System.out.println("\n"+num);
 	    int s = start;
 	    int e = end;
 	    int i = start+1;
+	    swap(data,rand,start);
+	    //System.out.println("num = "+num);
 	    //System.out.println("s = "+start);
 	    //System.out.println("e = "+end);
 	    while (i<=e) {
 		//System.out.println("\ns = "+s);
 		//System.out.println("e = "+e);
 		//System.out.println("i = "+i);
-		//System.out.println("rand = "+rand);
-		//System.out.println("n = "+n);
 		//System.out.println(toString(data));
 		//System.out.println(data[i]);
-		if (data[i] < num ) {
+		if (data[i] == num ) {
+		    if (i == s+1) {
+			s++;
+		    }
 		    i++;
 		}
 		else if (data[i] < num) {
@@ -107,7 +110,7 @@ public class Quick {
     }
 
     private static void swap (int[] arr, int a, int b) {
-	int temp = b;
+	int temp = arr[b];
 	arr[b] = arr[a];
 	arr[a] = temp;
     }
@@ -124,6 +127,14 @@ public class Quick {
 		System.out.println(toString(n));
 	    }
 	}
+	    /*int[] n = new int[100];
+	for (int i = 0; i < n.length; i++) {
+	    n[i] = (int)(Math.random() * 5);
+	}
+	System.out.println(toString(n));
+	quicksort(n);
+	System.out.println(toString(n));
+	*/
 	/*int[]ary = { 2, 10, 15, 23, 0,  5};
 	  System.out.println(quickselect( ary , 0 )); //would return 0
 	  System.out.println(quickselect( ary , 1 ));  //would return 2
