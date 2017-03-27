@@ -88,9 +88,6 @@ public class Quick {
 		//System.out.println(toString(data));
 		//System.out.println(data[i]);
 		if (data[i] == num ) {
-		    if (i == s+1) {
-			s++;
-		    }
 		    i++;
 		}
 		else if (data[i] < num) {
@@ -116,23 +113,20 @@ public class Quick {
     }
 
     public static void main(String[] args) {
-	for (int st = 0; st < 10; st++) {
-	    for (int en = st; en < 9; en++) {
-		int[] n = new int[100];
-		for (int i = 0; i < n.length; i++) {
-		    n[i] = (int)(Math.random() * 10);
-		}
-		quicksort(n);
-		System.out.println("");
-		System.out.println(toString(n));
-	    }
-	}
-	    /*int[] n = new int[100];
+	int[] n = new int[1000000];
+	//int init = 0;
 	for (int i = 0; i < n.length; i++) {
-	    n[i] = (int)(Math.random() * 5);
+	    n[i] = (int)(Math.random() * 10);
 	}
-	System.out.println(toString(n));
 	quicksort(n);
+	System.out.println("");
+	System.out.println(toString(n));
+	/*int[] n = new int[100];
+	  for (int i = 0; i < n.length; i++) {
+	  n[i] = (int)(Math.random() * 5);
+	  }
+	  System.out.println(toString(n));
+	  quicksort(n);
 	System.out.println(toString(n));
 	*/
 	/*int[]ary = { 2, 10, 15, 23, 0,  5};
