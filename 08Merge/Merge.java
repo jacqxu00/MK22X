@@ -34,12 +34,14 @@ public class Merge {
 	else {
 	    int[] left = new int[data.length/2];
 	    int[] right = new int[data.length - left.length];
+	    int n = 0;
 	    for (int i = 0; i < data.length; i++) {
 		if (i < left.length) {
 		    left[i] = data[i];
 		}
 		else {
-		    right[i] = data[i];
+		    right[n] = data[i];
+		    n++;
 		}
 	    }
 	    int[] a = new int[data.length/2];
@@ -49,5 +51,27 @@ public class Merge {
 	    merge(a,b,data);
 	    return data;
 	}
+    }
+
+    public static String toString(int[] s) {
+	String ans = "";
+	for (int r = 0; r < s.length; r++) {
+	    ans += s[r];
+	    ans += ", ";
+	}
+	return ans;
+    }
+
+    public static void main(String[] args) {
+	/*int[] n = {8,3,4,2,5,1,0,7,6,9};
+	mergesort(n);
+	System.out.println(toString(n));*/
+	int[] n = new int[1000];
+	for (int i = 0; i < n.length; i++) {
+	    n[i] = (int)(Math.random() * 10);
+	}
+	mergesort(n);
+	System.out.println("");
+	System.out.println(toString(n));
     }
 }
