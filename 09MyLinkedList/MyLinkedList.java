@@ -1,5 +1,5 @@
 import java.util.*;
-public class MyLinkedList{
+public class MyLinkedList implements Iterable<Integer> {
 
     private class LNode{
 	LNode next,prev;
@@ -25,6 +25,35 @@ public class MyLinkedList{
 		ans += "("+next.value+")";
 	    }
 	    return ans;
+	}
+    }
+
+    public class MyLinkedListIterator implements Iterator<Integer> {
+	public MyLinkedList list;
+	public LNode node;
+    
+	public MyLinkedListIterator(MyLinkedList l, int i){
+	    list = l;
+	    node = l.getNthNode(i);
+	}
+
+	public boolean hasNext(){
+	    return node != null;
+	}
+
+	public Integer next(){
+	    if(hasNext()){
+		Integer ans = node.value;
+		node = node.next;
+		return ans;
+	    }
+	    else{
+		throw new NoSuchElementException();
+	    }
+	}
+
+	public void remove(){
+	    throw new UnsupportedOperationException();
 	}
     }
 
@@ -201,6 +230,10 @@ public class MyLinkedList{
 	}
     }
 
+    public Iterator<Integer> iterator(){
+	return new MyLinkedListIterator(this, 0);
+    }
+
     public static void main(String[] args) {
 	MyLinkedList a = new MyLinkedList();
 	System.out.println(a.toString());
@@ -226,6 +259,10 @@ public class MyLinkedList{
 	System.out.println(a.get(1));
 	System.out.println(a.indexOf(1));
 	System.out.println(a.toString());
+        Iterator<Integer> test = a.iterator();
+        while(test.hasNext()){
+            System.out.println(test.next());
+        }
     }
 
 }
