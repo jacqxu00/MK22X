@@ -1,0 +1,127 @@
+import java.util.*;
+public class MyLinkedList{
+
+    private class LNode{
+	LNode next,prev;
+	int value;
+
+	public LNode(int value){
+	    this.value=value;
+	}
+
+	public String toString(){
+	    if (next != null && prev != null) {
+		return "("+prev.value+")"+value+"("+next.value+")";
+	    }
+	    if (next == null) {
+		return "("+prev.value+")"+value+"(null)";
+	    }
+	    else {
+		return "(null)"+value+"("+next.value+")";
+	    }
+	}
+    }
+
+    LNode head,tail;
+    int size;
+
+    public MyLinkedList(){
+	size = 0;
+    }
+
+    public int size(){
+	return size;
+    }
+
+    //check indexing and parsing
+    private LNode getNthNode(int n){
+        if (n < 0 || n >= size) {
+	    throw new IndexOutOfBoundsException("Index out of Bounds");
+	}
+	LNode ans;
+	if (size/n = 2) {
+	    ans = head;
+	    for (int i = 0; i < n; i++) {
+		ans = ans.next;
+	    }
+	}
+	else {
+	    ans = tail;
+	    for (int i = size-1; i > size - n; i++) {
+		ans = ans.prev;
+	    }
+	}
+	return ans;	    
+    }
+
+    private void addAfter(LNode location, LNode toBeAdded){
+	if (location == null || toBeAdded == null) {
+	    throw NullPointerException("Null LNode");
+	}
+	//check that TBA not in the list already
+	toBeAdded.next = location.next;
+	location.next.prev = toBeAdded;
+	location.next = toBeAdded;
+	toBeAdded.prev = location;
+	size++;
+	//specical case 
+    }
+
+    private void remove(LNode target){
+	
+    }
+
+    public String toString() {
+	String ans = "[";
+	LNode node = head;
+	for (int i = 0; i < size-1; i++) {
+	    ans += " ";
+	    ans += node.toString();
+	    ans += ",";
+	    node = node.next;
+	}
+	ans += " ";
+	ans += node.toString();
+	ans += "]";
+	return ans;
+    }
+
+    public boolean add(int value){
+	int cur = LNode(value);
+	if (size = 0) {
+	    head = cur;
+	    tail = cur;
+	}
+	else {
+	    addAfter(tail,cur);
+	}
+	return true;
+    }
+
+    public int get(int index){
+	return getNthNode(index).value;
+    }
+
+    public int set(int index, int value){/*complete this*/}
+
+    public int indexOf(int value){
+    int ans = 0;
+    LNode node = head;
+    try {
+	while (node.value != value){
+		node = node.next;
+		ans++;
+	    }
+	    return ans;
+	}
+	catch (NullPointerException e){
+	    return -1;
+	}
+    }
+
+    public int remove(int index){/*complete this*/}
+
+    public void add(int index,int value){/*complete this*/}
+
+
+}
