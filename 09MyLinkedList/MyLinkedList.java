@@ -263,6 +263,10 @@ public class MyLinkedList implements Iterable<Integer> {
         while(test.hasNext()){
             System.out.println(test.next());
         }
+	a.remove(0);
+	a.remove(0);
+	a.remove(0);
+
     }
 
 }
