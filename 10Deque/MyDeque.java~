@@ -1,0 +1,131 @@
+public class MyDeque {
+    String[] array;
+    int size; int start; int end;
+
+    public MyDeque(){
+	array = new String[10];
+	size = 10;
+    }
+
+    //The add methods:
+    //These will add the element to the specified side. The deque will double capacity if there is no space left.
+    //Throws: NullPointerException - if the specified element is null and this deque does not permit null elements
+    public void addFirst(String s) {
+	if (s == null) {
+	    throw new NullPointerException("string is null");
+	}
+	else {
+	    extendArray();
+	    if (size==0) {
+		array[0] = s;
+		start = 0;
+		end = 0;
+		size++;
+	    }
+	    else {
+		if (start - 1 == -1) {
+		    array[array.length-1] = s;
+		    start = array.length -1;
+		    size++;
+		}
+		else {
+		    array[start-1] = s;
+		    start--;
+		    size++;
+		}
+	    }
+	}
+    }
+    
+    public void addLast(String s) {
+	if (s == null) {
+	    throw new NullPointerException("string is null");
+	}
+	else {
+	    extendArray();
+	    if (size==0) {
+		array[0] = s;
+		start = 0;
+		end = 0;
+	    }
+	    else {
+		if (end + 1 == array.length) {
+		    array[0] = s;
+		    end = 0;
+		    size++;
+		}
+		else {
+		    array[end+1] = s;
+		    end++;
+		    size++;
+		}
+	    }
+	}
+    }
+
+    private void extendArray() {
+	if (size == array.length) {
+	    String[] temp = new String[size*2];
+	    if (start <= end) {
+		for (int i = 0; i < array.length; i++) {
+		    temp[i] = array[i];
+		}
+		array = temp;
+	    }
+	    else {
+		int backlength = array.length - start;
+		for (int s = start; s < array.length; s++) {
+		    int startlength = array.length - s;
+		    temp[temp.length-startlength] = array[s];
+		}
+		start = temp.length - backlength;
+		for (int e = 0; e <= end; e++) {
+		    temp[e] = array[e];
+		}
+		array = temp;
+	    }
+	}
+    }
+    
+
+    //The remove methods:
+    //These will retrieve and remove the element from the specified side.
+    public String removeFirst() {
+	if (size == 0) {
+	    throw new NoSuchElementException("deque is empty already");
+	}
+	array[start] = null;
+	if (start = array.length-1) {
+	    start = 0;
+	}
+	else {
+	    start++;
+	}
+	size--;
+    }
+    
+    public String removeLast() {
+	if (size == 0) {
+	    throw new NoSuchElementException("deque is empty already");
+	}
+	array[end] = null;
+	if (end = 0) {
+	    start = array.length - 1;
+	}
+	else {
+	    end--;
+	}
+	size--;
+    }
+    
+    //Throws:
+    //NoSuchElementException - if this deque is empty
+
+    //The get methods:
+    //These will retrieve but not remove the element from the specified side.
+    public String getFirst() {
+    }
+    public String getLast() {
+    }
+    //Throws: NoSuchElementException - if this deque is empty
+}
