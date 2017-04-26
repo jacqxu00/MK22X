@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class StackCalc {
+
+    private static boolean isOp(String s) {
+	return s.equals("/") || s.equals("+") || s.equals("-") || s.equals("*") || s.equals("%");;
+    }
+
+    private static double apply(String op, double a, double b) {
+	if (op.equals("/")) {
+	    return a * 1.0 / b;
+	}
+	else if (op.equals("-")) {
+	    return a - b;
+	}
+	else if (op.equals("+")) {
+	    return a + b;
+	}
+	else if (op.equals("*")) {
+	    return a * b;
+	}
+	else {
+	    return a % b;
+	}
+    }
+	
+    public static String eval(String s) {
+	String[] tokens = s.split(" ");
+	values = new Stack();
+	for (s : tokens) {
+	    if (isOp()) {
+		values.push(apply(s,pop(),pop()));
+	    }
+	    else {
+		values.push(Double.parseDouble(s));
+	    }
+	}
+	return values.pop();
+    }
+		    
+	
+    
+}
