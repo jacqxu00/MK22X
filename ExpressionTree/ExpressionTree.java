@@ -5,18 +5,19 @@ public class ExpressionTree{
       if (isValue()) {
 	  return getValue();
       }
-      else if (getOp()=='+') {
+      if (getOp()=='+') {
 	  return getLeft().evaluate() + getRight().evaluate();
       }
-      else if (getOp()=='-') {
+      if (getOp()=='-') {
 	  return getLeft().evaluate() - getRight().evaluate();
       }
-      else if (getOp()=='*') {
+      if (getOp()=='*') {
 	  return getLeft().evaluate() * getRight().evaluate();
       }
-      else {
+      if (getOp()=='/') {
 	  return getLeft().evaluate() / getRight().evaluate();
       }
+      return getValue();
   }
   
     /*return the expression as an infix notation string with parenthesis*/
@@ -53,7 +54,20 @@ public class ExpressionTree{
       }
   }
   
-  
+    /*
+  public static ExpressionTree stringToTree(String s) {
+	String[] tokens = s.split(" ");
+	Stack<Double> values = new Stack<Double>();
+	for (String token : tokens) {
+	    if (isOp(token)) {
+		values.push(apply(token,values.pop(),values.pop()));
+	    }
+	    else {
+		values.push(Double.parseDouble(token));
+	    }
+	}
+	return values.pop();
+	}*/
   
   
   
