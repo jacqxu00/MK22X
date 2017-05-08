@@ -40,7 +40,7 @@ public class MyHeap {
 	}
 	else if (arr.size() > 2) {
 	    swap(arr.size()-1,1);
-	    arr.remove(arr.size()-1);]
+	    arr.remove(arr.size()-1);
 	    pushDown();
 	}
 	return ans;
