@@ -1,0 +1,44 @@
+public class RunningMedian {
+    MyHeap max;
+    MyHeap min;
+
+    public RunningMedian() {
+	max = new MyHeap(false);
+	min = new MyHeap(true);
+    }
+
+    public void add(int a) {
+	if (max.getSize()==0 && min.getSize()==0) {
+	    max.add(a);
+	}
+	else {
+	    if (a > getMedian()) {
+		min.add(a);
+		while (min.getSize()-max.getSize()>1) {
+		    max.add(min.remove());
+		}
+	    }
+	    else {
+		max.add(a);
+		while (max.getSize()-min.getSize()>1) {
+		    min.add(max.remove());
+		}
+	    }
+	}
+    }
+
+    public double getMedian() {
+	if ((max.getSize()+min.getSize())%2==1) {
+	    if (max.getSize()>min.getSize()) {
+		return max.peek();
+	    }
+	    else {
+		return min.peek();
+	    }
+	}
+	else {
+	    return (max.peek()+min.peek())*1.0/2;
+	}
+    }
+    
+}

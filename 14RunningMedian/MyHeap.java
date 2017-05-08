@@ -6,6 +6,7 @@ public class MyHeap {
 
     public MyHeap() {
 	arr = new ArrayList<Integer>();
+	arr.add(null);
 	constant = 1;
     }
 
@@ -21,8 +22,7 @@ public class MyHeap {
     }
     
     public void add(int s) {
-	if (arr.size() == 0) {
-	    arr.add(null);
+	if (arr.size() == 1) {
 	    arr.add(s);
 	}
 	else {
@@ -32,6 +32,9 @@ public class MyHeap {
     }
 
     public int remove() {
+	if (arr.size() == 1) {
+	    throw new NullPointerException("Heap is currently empty");
+	}
 	int ans = arr.get(1);
 	if (arr.size() == 2) {
 	    arr.remove(1);
@@ -99,8 +102,11 @@ public class MyHeap {
     }
     
     public static void main(String[] args) {
-	MyHeap heap = new MyHeap(false);
+	MyHeap heap = new MyHeap(true);
+	//heap.remove();
 	heap.add(5);
+	System.out.println(heap + "\n");
+	heap.remove();
 	System.out.println(heap + "\n");
 	heap.add(5);
 	System.out.println(heap + "\n");
@@ -119,6 +125,8 @@ public class MyHeap {
 	heap.add(3);
 	System.out.println(heap + "\n");
 	heap.add(9);
+	System.out.println(heap + "\n");
+	heap.remove();
 	System.out.println(heap + "\n");
 	heap.remove();
 	System.out.println(heap + "\n");
