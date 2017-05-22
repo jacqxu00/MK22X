@@ -1,0 +1,17 @@
+public class MazeSolver {
+    char[][] grid;
+    Location start;
+    Location end;
+    int maxRows;
+    int maxCols;
+    boolean animate;
+
+    public MazeSolver(String filename) {
+	this(filename,false);
+    }
+    
+    public MazeSolver(String filename, boolean anim) {
+	animate = anim;
+	
+    }
+}

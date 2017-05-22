@@ -32,6 +32,10 @@ public class Location implements Comparable<Location>{
 	return col;
     }
 
+    public Location getPrev() {
+	return previous;
+    }
+
     public String toString() {
 	return "("+row+","+col+")";
     }

@@ -1,23 +1,14 @@
 import java.util.*;
 
-public class PQFrontier implements Frontier {
-    MyPQ locations;
+public class FrontierPQ implements Frontier {
+    private MyPQ locations;
     
     public class MyPQ {
-	private int constant;
 	private ArrayList<Location> arr;
 
 	public MyPQ() {
 	    arr = new ArrayList<Location>();
 	    arr.add(null);
-	    constant = 1;
-	}
-
-	public MyPQ(boolean a) {
-	    this();
-	    if (!a) {
-		constant = -1;
-	    }
 	}
 
 	public Location peek() {
@@ -52,7 +43,7 @@ public class PQFrontier implements Frontier {
 
 	private void pushUp() {
 	    int index = arr.size()-1;
-	    while (index/2 > 0 && (arr.get(index).compareTo(arr.get(index/2)))*constant < 0) {
+	    while (index/2 > 0 && arr.get(index).compareTo(arr.get(index/2)) < 0) {
 		swap(index,index/2);
 		index = index/2;
 	    }
@@ -62,13 +53,13 @@ public class PQFrontier implements Frontier {
 	    int index = 1;
 	    while (arr.size()-1 >= 2*index) {
 		if (arr.size()-1 < 2*index+1) {
-		    if ((arr.get(index).compareTo(arr.get(index*2)))*constant > 0) {
+		    if (arr.get(index).compareTo(arr.get(index*2)) > 0) {
 			swap(index, index*2);
 		    }
 		    index = index*2;
 		}
 		else {
-		    if ((arr.get(index*2).compareTo(arr.get(index*2+1)))*constant < 0) {
+		    if (arr.get(index*2).compareTo(arr.get(index*2+1)) < 0) {
 			swap(index, index*2);
 			index = index*2;
 		    }
@@ -106,7 +97,7 @@ public class PQFrontier implements Frontier {
 
     }
 
-    public PQFrontier() {
+    public FrontierPQ() {
 	locations = new MyPQ();
     }
     
@@ -115,7 +106,7 @@ public class PQFrontier implements Frontier {
     }
 
     public Location next() {
-        return locations.peek();
+        return locations.remove();
     }
     
 }
