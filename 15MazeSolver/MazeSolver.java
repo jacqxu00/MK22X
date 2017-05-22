@@ -60,26 +60,38 @@ public class MazeSolver {
 		    Location next = new Location(newRow, newCol, current, distToS, distToE, aStar);
 		    solver.add(next);
 		    board.set(newRow,newCol,'?');
-		    System.out.println(board.toString(100));
+		    System.out.println(toString(200));
 		}
 	    }
 	    }
 	Location prev = current;
+	int row = prev.row();
+	int col = prev.col();
+	board.set(row,col,'E');
+	prev = prev.getPrev();
 	while (prev != board.getStart()) {
-	    int row = prev.row();
-	    int col = prev.col();
+	    row = prev.row();
+	    col = prev.col();
 	    board.set(row,col,'@');
 	    prev = prev.getPrev();
 	}
-	int row = prev.row();
-	int col = prev.col();
-	board.set(row,col,'@');
-	System.out.println(board.toString(300));   
+	row = prev.row();
+	col = prev.col();
+	board.set(row,col,'S');
+	System.out.println(toString(200));   
     }
 
+    public String toString(int delay){
+	return board.toString(delay);
+    }
+
+    public String toString() {
+	return board.toString();
+    }
+    
     public static void main(String[] args) {
-	MazeSolver a = new MazeSolver("data4.txt",true);
-	a.solve(3);
+	MazeSolver a = new MazeSolver("data2.txt",true);
+	a.solve(2);
     }
 
 }
